@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+       
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .box
+        {
+            border: 1px solid rgb(3, 1, 1);
+            width: 300px; 
+            height: 410px;
+            background: #e6e6e6d5;
+            border-radius:23px;
+           
+        }
+        #result
+        {
+            position: relative;
+            top: 42px;
+            left: 8px;
+            width: 240px;
+            padding: 20px;
+            font-size: xx-large;
+            text-align: right;
+            border-radius: 5px;
+            border-top: 1px solid #fff;
+            border-left: 3px solid #fff;
+            border-bottom: 2px solid #fff ;
+            background: #a7af7c;
+            box-shadow: -5px 6px 8px 1px rgba(0,0,0,0.68) inset;
+-webkit-box-shadow: -5px 6px 8px 1px rgba(0,0,0,0.68) inset;
+-moz-box-shadow: -5px 6px 8px 1px rgba(0,0,0,0.68) inset;
+
+             }
+      button{
+          width: 50px;
+          padding: 15px;
+          margin-top: 15px;
+          margin-left: 15px;
+          border-radius: 9px;
+          box-shadow: 2px 2px 0px 1px rgba(0,0,0,0.64);
+          font-size: medium;
+          cursor: pointer;
+          font-weight: bold;
+          position: relative;
+          top: 50px;
+          left: 8px;
+          border: none;
+          background: #d8d7d7fa;
+          touch-action: manipulation;
+      }
+      button:active {
+  box-shadow: #1f1f20 0 3px 7px inset;
+  transform: translateY(2px);
+}
+#equal:active
+{
+    box-shadow: #e0ddd5 0 3px 7px inset;
+  transform: translateY(2px); 
+}
+/* button:focus {
+  box-shadow: #ce9b24 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+} */
+      /* button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+} */
+      #plus,#minus,#multip,#division,#equal
+      {
+        background: #03001C;
+        box-shadow: 2px 2px 0px 1px rgba(165, 162, 162, 0.64);
+          color: #fff;
+          font-size: large
+      }
+      #clear
+      {
+        background: #b3122c;
+        box-shadow: 2px 2px 0px 1px rgba(165, 162, 162, 0.64);
+          color: #fff;
+          font-size: large
+      }
+   
+      #clear:hover
+      {
+          color: #b3122c;
+          background: #fff;
+          
+          
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <input type="text" id="result" readonly  placeholder="0000" >
+            <div class="row1">
+                <button value="7" onclick="display('7')">7</button>
+                 <button value="8" onclick="display('8')">8</button>
+                 <button value="9" onclick="display('9')">9</button>
+                 <button value="+" onclick="display('+')" id="plus">+</button>
+            </div>
+            <div class="row2">
+                <button value="4" onclick="display('4')">4</button>
+                 <button value="5" onclick="display('5')">5</button>
+                 <button value="6" onclick="display('6')">6</button>
+                 <button value="-" onclick="display('-')" id="minus">-</button>
+            </div>
+            <div class="row3">
+                 <button value="1" onclick="display('1')">1</button>
+                 <button value="2" onclick="display('2')">2</button>
+                 <button value="3" onclick="display('3')">3</button>
+                 <button value="*" onclick="display('*')" id="multip">*</button>
+            </div>
+            <div class="row4">
+                <button value="C" onclick="clearScreen()" id="clear">C</button>
+                 <button  value="0" onclick="display('0')">0</button>
+                 <button  value="=" onclick="calculate()" id="equal">=</button>
+                 <button  value="/" onclick="display('/')" id="division">/</button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // alert("Hi Vishu....!Welcome To Infinity Calculation ")
+// This function clear all the values
+function clearScreen() {
+    document.getElementById("result").value = "";
+}
+ 
+// This function display values
+function display(value) {
+    document.getElementById("result").value += value;
+}
+ 
+// This function evaluates the expression and returns result
+function calculate() {
+    var p = document.getElementById("result").value;
+    var q = eval(p);
+    document.getElementById("result").value = q;
+}
+    </script>
+</body>
+</html>
